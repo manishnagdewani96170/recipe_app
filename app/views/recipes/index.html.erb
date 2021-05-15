@@ -1,0 +1,23 @@
+<div class="page-header">
+  <h2>Recipe List</h2>
+</div>
+<table class="table table-striped">
+  <thead>
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">Title</th>
+      <th scope="col">Image</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% if @recipes %>
+      <% @recipes.each_with_index do |recipe, index| %>
+        <tr>
+          <th scope="row"><%= link_to index + 1, recipe_path(recipe.id) %></th>
+          <td><%= recipe.title %></td>
+          <td><%= image_tag recipe.photo_url, width: 50, height: 50 %></td>
+        </tr>
+      <% end %>  
+    <% end %>    
+  </tbody>
+</table>
